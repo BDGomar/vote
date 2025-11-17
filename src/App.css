@@ -1,38 +1,488 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #f0f5f0;
+  color: #0c2e15;
+}
+
+.content {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  flex: 1;
+}
+
+.with-tab-padding {
+  padding-bottom: 5.5rem;
+}
+
+.bottom-tab {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: auto;
+  background: #ffffff;
+  border-top: 1px solid rgba(12, 46, 21, 0.08);
+  padding: 0.4rem 0.5rem calc(env(safe-area-inset-bottom, 0) + 0.4rem);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.tab-link {
+  flex: 1;
+  border: none;
+  background: transparent;
+  text-align: center;
+  text-decoration: none;
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0;
+}
+
+.tab-icon {
+  font-size: 1.3rem;
+}
+
+.tab-links {
+  width: min(420px, 100%);
+  display: flex;
+}
+
+.tab-link.active {
+  color: #07601e;
+}
+
+.logout-btn {
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  font-weight: 600;
+  background: #0f5521;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.logout-btn.solid {
+  width: 100%;
+}
+
+.landing-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0a2c12, #1f6b2a);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.landing-overlay {
+  text-align: center;
+  max-width: 480px;
+  padding: 2.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.landing-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.landing-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.landing-actions button {
+  padding: 0.9rem;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #ffffff;
+  color: #0f5521;
+}
+
+.landing-actions button.outlined {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.auth-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(140deg, #0a2c12, #1f6b2a);
+}
+
+.auth-card {
+  width: min(420px, 100%);
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.auth-card h1 {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+}
+
+.auth-card h2 {
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+}
+
+.auth-card input,
+.auth-card button {
+  font-size: 1rem;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.auth-card label {
+  text-align: left;
+  font-weight: 600;
+  color: #0d3b66;
+}
+
+.auth-card input {
+  margin-top: 0.4rem;
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #dfe6ee;
+  width: 100%;
+}
+
+.auth-card button {
+  margin-top: 0.5rem;
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: none;
+  background: #0f5521;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-icon {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.auth-switch {
+  margin-top: 1rem;
+}
+
+.auth-switch a {
+  color: #0f5521;
+  font-weight: 600;
+}
+
+.form-error {
+  color: #b91c1c;
+  background: #fee2e2;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.form-success {
+  color: #0f5521;
+  background: #e9f7ee;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+  color: #0c2e15;
+}
+
+.candidat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.candidat-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.candidat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.candidat-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.candidat-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.candidat-info h2 {
+  margin-bottom: 0.2rem;
+}
+
+.candidat-info .filiere {
+  font-weight: 700;
+  color: #0f5521;
+}
+
+.detail-page .detail-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card img {
+  width: min(320px, 100%);
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.detail-info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.detail-actions button {
+  flex: 1;
+  min-width: 180px;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+}
+
+.detail-actions button:first-child {
+  background: #0c7c2f;
+}
+
+.detail-actions button:last-child {
+  background: #0a471c;
+}
+
+.stats-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.stat-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #0a471c;
+}
+
+.percentage {
+  font-weight: 700;
+  color: #0a471c;
+}
+
+.pdf-viewer {
+  margin-top: 1.5rem;
+  height: 75vh;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(10, 71, 28, 0.15);
+}
+
+.pdf-viewer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.profile-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(15, 85, 33, 0.1);
+}
+
+.profile-row:last-of-type {
+  border-bottom: none;
+}
+
+.profile-row span {
+  color: #4b5563;
+}
+
+.back-btn {
+  border: none;
+  background: none;
+  color: #0f5521;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.info {
+  color: #0f5521;
+  background: #e9f7ee;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.error {
+  color: #862933;
+  background: #fde8e8;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.main-nav .mobile-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1.5rem 1rem 2.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .landing-overlay {
+    padding: 1.5rem;
+  }
+
+  .landing-actions {
+    flex-direction: column;
+  }
+
+  .auth-screen {
+    padding: 1rem;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .candidat-card {
+    border-radius: 16px;
+  }
+
+  .detail-page .detail-card {
+    padding: 1.5rem;
+  }
+
+  .detail-actions {
+    flex-direction: column;
+  }
+
+  .detail-actions button {
+    min-width: 100%;
+  }
+
+  .stats-list {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-tab {
+    border-radius: 18px 18px 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-content {
+    margin-top: 1rem;
+  }
+
+  .landing-actions button {
+    font-size: 0.95rem;
+  }
+
+  .auth-card input {
+    padding: 0.75rem;
+  }
+
+  .detail-card img {
+    width: 100%;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .candidat-info h2 {
+    font-size: 1.1rem;
+  }
+
+  .progress-bar {
+    height: 10px;
+  }
+
+  .with-tab-padding {
+    padding-bottom: 6.5rem;
   }
 }

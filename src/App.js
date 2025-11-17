@@ -1,24 +1,64 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import HomePage from './pages/HomePage';
+import CandidateDetailPage from './pages/CandidateDetailPage';
+import VoteStatisticsPage from './pages/VoteStatisticsPage';
+import ProfilePage from './pages/ProfilePage';
+import ProtectedRoute from './components/ProtectedRoute';
+import PdfViewerPage from './pages/PdfViewerPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/candidats"
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/candidats/:id"
+          element={
+            <ProtectedRoute>
+              <CandidateDetailPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/candidats/:id/programme"
+          element={
+            <ProtectedRoute>
+              <PdfViewerPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/statistiques"
+          element={
+            <ProtectedRoute>
+              <VoteStatisticsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profil"
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
