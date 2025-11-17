@@ -1,5 +1,5 @@
-export const API_BASE_URL = 'http://127.0.0.1:8001/api';
-export const STORAGE_BASE_URL = 'http://127.0.0.1:8001/storage';
+export const API_BASE_URL = 'http://52.23.165.159/api';
+export const STORAGE_BASE_URL = 'http://52.23.165.159/storage';
 
 export const ENDPOINTS = {
   login: `${API_BASE_URL}/login`,
