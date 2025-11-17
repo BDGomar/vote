@@ -1,4 +1,5 @@
 import MainNavigation from '../components/MainNavigation';
+import Footer from '../components/Footer';
 import { useAuth } from '../context/AuthContext';
 
 const ProfilePage = () => {
@@ -57,6 +58,7 @@ const ProfilePage = () => {
           </button>
         </section>
       </main>
+      <Footer />
       <MainNavigation />
     </div>
   );

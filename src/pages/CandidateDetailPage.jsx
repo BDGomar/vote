@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import MainNavigation from '../components/MainNavigation';
+import Footer from '../components/Footer';
 import { fetchCandidatById } from '../services/candidatService';
 import { getImageUrl, getPdfUrl } from '../config/apiConfig';
 import { submitVote } from '../services/voteService';
@@ -50,6 +51,7 @@ const CandidateDetailPage = () => {
         <main className="content with-tab-padding">
           <p className="info">Chargement du profil...</p>
         </main>
+        <Footer />
         <MainNavigation />
       </div>
     );
@@ -61,6 +63,7 @@ const CandidateDetailPage = () => {
         <main className="content with-tab-padding">
           <p className="error">{error ?? 'Candidat introuvable.'}</p>
         </main>
+        <Footer />
         <MainNavigation />
       </div>
     );
@@ -108,6 +111,7 @@ const CandidateDetailPage = () => {
           </div>
         </div>
       </main>
+      <Footer />
       <MainNavigation />
     </div>
   );

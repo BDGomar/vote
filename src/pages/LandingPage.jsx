@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const LandingPage = () => {
             </button>
           </div>
         </div>
-        <footer>© 2025 by DigitGroup</footer>
+        <Footer />
       </div>
     </div>
   );

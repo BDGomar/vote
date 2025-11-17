@@ -1,5 +1,6 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import MainNavigation from '../components/MainNavigation';
+import Footer from '../components/Footer';
 import { getPdfUrl } from '../config/apiConfig';
 import { fetchCandidatById } from '../services/candidatService';
 import { useEffect, useState } from 'react';
@@ -42,6 +43,7 @@ const PdfViewerPage = () => {
           </div>
         )}
       </main>
+      <Footer />
       <MainNavigation />
     </div>
   );

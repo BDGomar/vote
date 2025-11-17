@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainNavigation from '../components/MainNavigation';
+import Footer from '../components/Footer';
 import { fetchCandidats } from '../services/candidatService';
 import { getImageUrl } from '../config/apiConfig';
 
@@ -64,6 +65,7 @@ const HomePage = () => {
           </div>
         )}
       </main>
+      <Footer />
       <MainNavigation />
     </div>
   );

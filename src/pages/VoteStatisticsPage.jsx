@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import MainNavigation from '../components/MainNavigation';
+import Footer from '../components/Footer';
 import { fetchVoteStats } from '../services/voteService';
 
 const VoteStatisticsPage = () => {
@@ -63,6 +64,7 @@ const VoteStatisticsPage = () => {
           </div>
         )}
       </main>
+      <Footer />
       <MainNavigation />
     </div>
   );

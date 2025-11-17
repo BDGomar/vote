@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Footer from '../components/Footer';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -58,6 +59,7 @@ const LoginPage = () => {
           Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link>
         </p>
       </div>
+      <Footer />
     </div>
   );
 };

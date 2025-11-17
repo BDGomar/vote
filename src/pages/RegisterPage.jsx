@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Footer from '../components/Footer';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -72,10 +73,11 @@ const RegisterPage = () => {
             <p className="form-success">{successMessage}</p>
           )}
           <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Inscription...' : 'S’inscrire'}
+            {isSubmitting ? 'Inscription...' : 'S'inscrire'}
           </button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };
