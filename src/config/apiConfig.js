@@ -1,5 +1,5 @@
-export const API_BASE_URL = 'https://52.23.165.159/api';
-export const STORAGE_BASE_URL = 'https://52.23.165.159/storage';
+export const API_BASE_URL = 'https://vote.digitgroup.site/api';
+export const STORAGE_BASE_URL = 'https://vote.digitgroup.site/storage';
 
 export const ENDPOINTS = {
   login: `${API_BASE_URL}/login`,
