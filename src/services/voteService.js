@@ -1,15 +1,20 @@
 import axios from 'axios';
 import { ENDPOINTS, getAuthHeaders } from '../config/apiConfig';
 
-export const submitVote = async (candidatId, token) => {
+export const submitVote = async (candidatId, token, options = {}) => {
+  const { isNullVote = false } = options;
   if (!token) {
     return { success: false, message: 'Token manquant. Veuillez vous reconnecter.' };
   }
 
   try {
+    const payload = isNullVote
+      ? { is_null_vote: true }
+      : { candidat_id: candidatId };
+
     const voteResponse = await axios.post(
       ENDPOINTS.vote,
-      { candidat_id: candidatId },
+      payload,
       { headers: getAuthHeaders(token) },
     );
 
@@ -22,6 +27,7 @@ export const submitVote = async (candidatId, token) => {
       vote: voteResponse.data?.vote,
       message: voteResponse.data?.message ?? 'Vote enregistré',
       total_votes: statsResponse.data?.total_votes,
+      null_votes: statsResponse.data?.null_votes ?? 0,
       candidates: statsResponse.data?.candidates ?? [],
     };
   } catch (error) {

@@ -45,6 +45,18 @@ const CandidateDetailPage = () => {
     setVoteMessage(result.message);
   };
 
+  const handleNullVote = async () => {
+    const confirmation = window.confirm(
+      'Confirmez-vous l’enregistrement d’un bulletin nul ?',
+    );
+    if (!confirmation) return;
+
+    setIsVoting(true);
+    const result = await submitVote(null, token, { isNullVote: true });
+    setIsVoting(false);
+    setVoteMessage(result.message);
+  };
+
   if (isLoading) {
     return (
       <div className="page">
@@ -106,6 +118,9 @@ const CandidateDetailPage = () => {
               <button onClick={handleVote} disabled={isVoting}>
                 {isVoting ? 'Vote en cours...' : 'Voter'}
               </button>
+            <button className="null-vote" onClick={handleNullVote} disabled={isVoting}>
+              {isVoting ? 'Vote en cours...' : 'Bulletin nul'}
+            </button>
             </div>
             {voteMessage && <p className="info">{voteMessage}</p>}
           </div>

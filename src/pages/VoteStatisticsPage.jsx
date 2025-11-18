@@ -33,35 +33,60 @@ const VoteStatisticsPage = () => {
         {isLoading && <p className="info">Chargement des statistiques...</p>}
         {error && <p className="error">{error}</p>}
         {!isLoading && !error && stats && (
-          <div className="stats-list">
-            {stats.candidates?.map((candidate, index) => {
-              const key =
-                candidate.candidat_id ??
-                candidate.id ??
-                `${candidate.nom}-${candidate.prenom}-${index}`;
-              const percentage =
-                stats.total_votes > 0
-                  ? (candidate.total_votes / stats.total_votes) * 100
-                  : 0;
-              return (
-                <article key={key} className="stat-card">
-                  <h2>
-                    {candidate.nom} {candidate.prenom}
-                  </h2>
-                  <p>Votes : {candidate.total_votes ?? 0}</p>
-                  <div className="progress-bar">
-                    <div
-                      className="progress"
-                      style={{ width: `${percentage}%` }}
-                    />
-                  </div>
-                  <span className="percentage">
-                    {percentage.toFixed(1)}%
-                  </span>
-                </article>
-              );
-            })}
-          </div>
+          <>
+            <div className="stats-overview">
+              <article className="overview-card">
+                <span>Total des bulletins</span>
+                <strong>{stats.total_votes ?? 0}</strong>
+              </article>
+              <article className="overview-card null">
+                <span>Bulletins nuls</span>
+                <strong>{stats.null_votes ?? 0}</strong>
+                <small>
+                  {stats.total_votes
+                    ? `${(
+                        ((stats.null_votes ?? 0) / stats.total_votes) *
+                        100
+                      ).toFixed(1)}%`
+                    : '0%'}
+                </small>
+              </article>
+            </div>
+
+            <div className="stats-list">
+              {stats.candidates?.map((candidate, index) => {
+                const key =
+                  candidate.candidat_id ??
+                  candidate.id ??
+                  `${candidate.nom}-${candidate.prenom}-${index}`;
+
+                const validVotes =
+                  (stats.total_votes ?? 0) - (stats.null_votes ?? 0);
+                const percentage =
+                  validVotes > 0
+                    ? (candidate.total_votes / validVotes) * 100
+                    : 0;
+
+                return (
+                  <article key={key} className="stat-card">
+                    <h2>
+                      {candidate.nom} {candidate.prenom}
+                    </h2>
+                    <p>Votes : {candidate.total_votes ?? 0}</p>
+                    <div className="progress-bar">
+                      <div
+                        className="progress"
+                        style={{ width: `${percentage}%` }}
+                      />
+                    </div>
+                    <span className="percentage">
+                      {percentage.toFixed(1)}%
+                    </span>
+                  </article>
+                );
+              })}
+            </div>
+          </>
         )}
       </main>
       <Footer />
