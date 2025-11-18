@@ -27,8 +27,20 @@
 /* Pour les pages sans navigation (landing, login, register) */
 .landing-page .app-footer,
 .auth-screen .app-footer {
-  padding-bottom: 1.5rem;
-  margin-top: 2rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem;
+  margin-top: 0;
+  width: 100%;
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.auth-screen .app-footer strong {
+  color: #ffffff;
 }
 
 .landing-page .app-footer {
