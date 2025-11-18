@@ -1,25 +1,25 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "UA Vote",
+  "name": "UA Vote - Plateforme de vote en ligne",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "ua.png",
+      "type": "image/png",
+      "sizes": "any"
     },
     {
-      "src": "logo192.png",
+      "src": "ua.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "ua.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#0a2c12",
   "background_color": "#ffffff"
 }
