@@ -42,4 +42,3 @@ export const fetchVoteStats = async () => {
   const response = await axios.get(ENDPOINTS.voteStats);
   return response.data;
 };
-
