@@ -73,7 +73,7 @@ const RegisterPage = () => {
             <p className="form-success">{successMessage}</p>
           )}
           <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Inscription...' : 'S'inscrire'}
+            {isSubmitting ? 'Inscription...' : "S'inscrire"}
           </button>
         </form>
       </div>
