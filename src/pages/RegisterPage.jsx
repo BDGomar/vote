@@ -45,7 +45,7 @@ const RegisterPage = () => {
               type="text"
               value={matricule}
               onChange={(e) => setMatricule(e.target.value)}
-              placeholder="Ex : UA12345"
+              placeholder="Ex : 808170"
             />
           </label>
           <label>

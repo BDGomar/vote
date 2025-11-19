@@ -8,12 +8,15 @@ import VoteStatisticsPage from './pages/VoteStatisticsPage';
 import ProfilePage from './pages/ProfilePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import PdfViewerPage from './pages/PdfViewerPage';
+import SplashScreen from './components/SplashScreen';
 import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <>
+      <SplashScreen />
+      <BrowserRouter>
+        <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -58,7 +61,8 @@ function App() {
           }
         />
       </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </>
   );
 }
 
