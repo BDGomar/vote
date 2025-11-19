@@ -26,6 +26,13 @@ const SplashScreen = () => {
           Réalisé par Digit Group integrteur de solutions digitales
         </p>
       </div>
+      <div className="splash-footer">
+        <img 
+          src="/logoF.png" 
+          alt="Digit Group Logo" 
+          className="splash-digit-logo"
+        />
+      </div>
     </div>
   );
 };
