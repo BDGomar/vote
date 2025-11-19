@@ -486,6 +486,12 @@
   border-radius: 12px;
 }
 
+.blocked-info {
+  border: 1px dashed rgba(15, 85, 33, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(15, 85, 33, 0.1);
+  text-align: center;
+}
+
 .error {
   color: #862933;
   background: #fde8e8;
