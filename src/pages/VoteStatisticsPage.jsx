@@ -101,7 +101,15 @@ const VoteStatisticsPage = () => {
       [...(stats.candidates ?? [])]
         .map((candidate) => ({
           ...candidate,
-          votes_count: normalizeNumber(candidate.votes_count ?? candidate.votes),
+          votes_count: normalizeNumber(
+            candidate.votes_count ??
+              candidate.votes ??
+              candidate.total_votes ??
+              candidate.totalVotes ??
+              candidate.vote_count ??
+              candidate.voteCount ??
+              candidate.total,
+          ),
         }))
         .sort((a, b) => b.votes_count - a.votes_count),
     [stats.candidates],
@@ -176,7 +184,10 @@ const VoteStatisticsPage = () => {
                     totalVotes,
                   );
                   return (
-                    <article className="stat-card" key={candidate.id ?? index}>
+                    <article
+                      className="stat-card"
+                      key={candidate.id ?? candidate.candidat_id ?? index}
+                    >
                       <header>
                         <div>
                           <p className="stat-title">
