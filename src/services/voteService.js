@@ -38,7 +38,13 @@ export const submitVote = async (candidatId, token, options = {}) => {
   }
 };
 
-export const fetchVoteStats = async () => {
-  const response = await axios.get(ENDPOINTS.voteStats);
+export const fetchVoteStats = async (token) => {
+  if (!token) {
+    throw new Error('Token manquant');
+  }
+
+  const response = await axios.get(ENDPOINTS.voteStats, {
+    headers: getAuthHeaders(token),
+  });
   return response.data;
 };
